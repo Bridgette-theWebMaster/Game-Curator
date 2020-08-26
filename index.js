@@ -43,13 +43,13 @@ function getGenreList(genre) {
             throw new Error(response.statusText);
         })
         .then(responseJson => displayResults(responseJson))
-        .catch(err => {$('#js-error-message').text('Something went wrong: ${err.message}')});
+        .catch(err => {$('#js-error-message').text('Video Game Not Found')});
 }
 
 function getSimilarList(similar) {
     const formatSimilar = $('#gameName').val().replace(/\s+/g, '-').toLowerCase();
     console.log(formatSimilar);
-    const url = searchURL + "/" + formatSimilar +'/game-series';
+    const url = searchURL + "/" + formatSimilar + "/suggested";
     console.log(url);
     
     fetch(url)
@@ -60,7 +60,7 @@ function getSimilarList(similar) {
             throw new Error(response.statusText);
         })
         .then(responseJson => displayResults(responseJson))
-        .catch(err => {$('#js-error-message').text('Something went wrong: ${err.message}')});   
+        .catch(err => {$('#js-error-message').text('Video Game Not Found')});   
 }
 
 function watchGenreForm(){
