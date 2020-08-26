@@ -1,7 +1,7 @@
 /*TODO: fix mobile view*/
 
 body{
-    background-image: url(Images/Background.jpeg);
+    background-image: url(Background.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
