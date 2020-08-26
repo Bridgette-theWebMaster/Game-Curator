@@ -3,7 +3,7 @@
 
 const searchURL= "https://api.rawg.io/api/games";
 
-function displayResults(responseJson){
+function displayGenreResults(responseJson){
     console.log(responseJson);
     $('#results-list').empty();
     for (let i = 0; i < responseJson.results.length; i++){
@@ -41,16 +41,16 @@ function getGenreList(genre) {
             }
             throw new Error(response.statusText);
         })
-        .then(responseJson => displayResults(responseJson))
+        .then(responseJson => displayGenreResults(responseJson))
         .catch(err => {$('#js-error-message').text('Something went wrong: ${err.message}')});
 }
 
-function watchForm(){
-    $('form').submit(event => {
+function watchGenreForm(){
+    $('#js-genre-search').submit(event => {
         event.preventDefault();
         const genre = $('#genreList').val();
         getGenreList(genre);
         console.log(genre);
     })
 }
-$(watchForm);
+$(watchGenreForm);
