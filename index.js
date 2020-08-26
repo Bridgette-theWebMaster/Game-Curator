@@ -1,3 +1,4 @@
+//TODO: add a feature to search similar games
 'use strict';
 
 const searchURL= "https://api.rawg.io/api/games";
@@ -6,10 +7,18 @@ function displayResults(responseJson){
     console.log(responseJson);
     $('#results-list').empty();
     for (let i = 0; i < responseJson.results.length; i++){
+        let results = responseJson.results[i];
+        let platforms = results.parent_platforms.map((platforms) => {
+            return platforms.platform
+        });
+        let platform = platforms.map((platform) => {
+            return platform.name
+        })
+        console.log(platform);
         $('#results-list').append(
-            `<li><h3>${responseJson.results[i].name}</h3><img src= ${responseJson.results[i].background_image} width= 200px>
-            <p>Release date: ${responseJson.results[i].released}</p>
-            <p id= "platforms">Platforms:</p>
+            `<li><img src= ${results.background_image} width= 200px><h3>${results.name}</h3>
+            <p>Release date: ${results.released}</p>
+            <p id= "platforms">Platforms: ${platform}</p>
             
             </li>`
     )};
@@ -28,7 +37,7 @@ function getGenreList(genre) {
             throw new Error(response.statusText);
         })
         .then(responseJson => displayResults(responseJson))
-        .catch(err => {$('#js-error-message').text('Something went wrong: ${"err.message"}')});
+        .catch(err => {$('#js-error-message').text('Something went wrong: ${err.message}')});
 }
 
 function watchForm(){
