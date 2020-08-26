@@ -22,7 +22,7 @@ function displayResults(responseJson){
         });
         $('#results-list').append(
             `<li><img src= ${results.background_image} width= 200px><h3>${results.name}</h3>
-            <p>Release date: ${results.released}</p>
+            <p>Release Date: ${results.released}</p>
             <p id= "platforms">How to play: ${platform}</p>
             <p id= "stores">Where to buy: ${store}</p>          
             </li>`
