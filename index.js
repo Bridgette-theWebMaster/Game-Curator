@@ -3,7 +3,7 @@
 
 const searchURL= "https://api.rawg.io/api/games";
 
-function displayGenreResults(responseJson){
+function displayResults(responseJson){
     console.log(responseJson);
     $('#results-list').empty();
     for (let i = 0; i < responseJson.results.length; i++){
@@ -30,6 +30,7 @@ function displayGenreResults(responseJson){
     $('#results').removeClass('hidden');
 }
 
+
 function getGenreList(genre) {
     const url= searchURL + "?genres=" + genre;
     console.log(url);
@@ -41,8 +42,25 @@ function getGenreList(genre) {
             }
             throw new Error(response.statusText);
         })
-        .then(responseJson => displayGenreResults(responseJson))
+        .then(responseJson => displayResults(responseJson))
         .catch(err => {$('#js-error-message').text('Something went wrong: ${err.message}')});
+}
+
+function getSimilarList(similar) {
+    const formatSimilar = $('#gameName').val().replace(/\s+/g, '-').toLowerCase();
+    console.log(formatSimilar);
+    const url = searchURL + "/" + formatSimilar +'/game-series';
+    console.log(url);
+    
+    fetch(url)
+        .then(response => {
+            if(response.ok){
+                return response.json();
+            }
+            throw new Error(response.statusText);
+        })
+        .then(responseJson => displayResults(responseJson))
+        .catch(err => {$('#js-error-message').text('Something went wrong: ${err.message}')});   
 }
 
 function watchGenreForm(){
@@ -50,7 +68,15 @@ function watchGenreForm(){
         event.preventDefault();
         const genre = $('#genreList').val();
         getGenreList(genre);
-        console.log(genre);
+    })
+}
+
+function watchSimilarForm(){
+    $('#js-similar-search').submit(event => {
+        event.preventDefault();
+        const similar = $('#gameName').val();
+        getSimilarList(similar);
     })
 }
 $(watchGenreForm);
+$(watchSimilarForm);
