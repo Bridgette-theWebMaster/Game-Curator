@@ -20,12 +20,15 @@ function displayResults(responseJson){
         let store = stores.map((store) => {
             return store.name
         });
-        $('#results-list').append(
-            `<li><img src= ${results.background_image} width= 200px><h4>${results.name}</h4>
+        $('#results').append(
+            `<h3>Search results:</h3>
+            <ul id="results-list">
+            <li><img src= ${results.background_image} width= 200px><h4>${results.name}</h4>
             <p>Release Date: ${results.released}</p>
             <p id= "platforms">How to play: ${platform}</p>
             <p id= "stores">Where to buy: ${store}</p>          
-            </li>`
+            </li>
+            </ul>`
     )};
     $('#results').removeClass('hidden');
 }
