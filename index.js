@@ -3,7 +3,6 @@
 const searchURL= "https://api.rawg.io/api/games";
 
 function displayResults(responseJson){
-    console.log(responseJson);
     $('#js-error-message').empty();
     $('#results-list').empty();
     for (let i = 0; i < responseJson.results.length; i++){
@@ -36,7 +35,6 @@ function displayResults(responseJson){
 
 function getGenreList(genre) {
     const url= searchURL + "?genres=" + genre;
-    console.log(url);
 
     fetch(url)
         .then(response => {
@@ -53,7 +51,6 @@ function getSimilarList(similar) {
     const formatSimilar = $('#gameName').val().replace(/\s+/g, '-').toLowerCase();
     console.log(formatSimilar);
     const url = searchURL + "/" + formatSimilar + "/suggested";
-    console.log(url);
     
     fetch(url)
         .then(response => {
