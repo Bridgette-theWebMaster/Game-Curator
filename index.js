@@ -1,4 +1,3 @@
-//TODO: add a feature to search similar games
 'use strict';
 
 const searchURL= "https://api.rawg.io/api/games";
