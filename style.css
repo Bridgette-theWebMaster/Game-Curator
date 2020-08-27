@@ -1,7 +1,7 @@
 /*TODO: fix mobile view*/
 
 body{
-    background-image: url(Background.jpeg);
+    background-image: url(Images/Background.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -129,17 +129,23 @@ footer{
 }
 
 .connect{
-    float: right;
+    font-weight: bold;
+
+    align-content: center;
 }
 
-footer p{
-    font-weight: bold;
+.credit{    
+    align-content: center;
 }
 
 footer h4{
     margin-bottom: 10px;
 }
-
+@media only screen and (min-width: 500px){
+    .connect{
+        float: right;
+        }
+}
 @media only screen and (min-width: 875px){
     header{
         margin-top: 45px;
@@ -178,4 +184,6 @@ footer h4{
         margin-bottom: 0;
         max-height: 125px;
     }
+
+
 }
