@@ -8,6 +8,7 @@ body{
     background-position: center;
     font-family: monospace;
     text-align: center;
+    color: rgb(255, 255, 255);
 }
 
 header h1{
@@ -52,6 +53,7 @@ h2{
 h1,
 h2{
     font-family: 'a okay';
+    color: rgb(0, 0, 0);
 }
 
 button{
@@ -82,9 +84,10 @@ button{
 #results{
     background-color:rgba(0, 0, 0, 0.685);
     color: rgb(255, 255, 255);
+    padding-left: 50px;
+    padding-right: 50px;
     text-align: left;
     overflow: auto;
-    max-height: 350px;
 }
 
 #results h3{
@@ -98,14 +101,14 @@ button{
 
 a:link,
 a:visited{
-    color: rgb(43, 43, 43);
+    color: rgb(255, 255, 255);
 }
 a:hover {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
 }
 
-img{
+#results img{
     float:right;
     margin-bottom: auto;
     max-height: 100px;
@@ -118,13 +121,26 @@ footer{
     padding: 0;
 }
 
-footer p{
-    font-weight: bold;
-    display: inline-block;
-    margin-bottom: 0;
+#contact div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
 }
 
-@media only screen and (min-width: 800px){
+.connect{
+    float: right;
+}
+
+footer p{
+    font-weight: bold;
+}
+
+footer h4{
+    margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 875px){
     header{
         margin-top: 45px;
         margin-bottom: 45px;
@@ -137,7 +153,18 @@ footer p{
     }
 
     #results{
+        padding-top: 25px;
+        padding-right: 125px;
+        padding-left: 125px;
         max-height: 550px;
+    }
+
+    #results h3{
+        font-size: 20px;
+    }
+
+    #results-list ul{
+        padding-top: 75px;
     }
 
     .genre-search{
