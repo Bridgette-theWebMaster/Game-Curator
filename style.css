@@ -43,17 +43,19 @@ h1{
     font-size: 38px;
     text-shadow: 2px 2px rgb(52, 250, 100);
     margin-top: 50px 10px 50px 10px;
+    color: rgb(0, 0, 0);
 }
 
 h2{
     font-size: 34px;
-    text-shadow: 2px 2px rgb(216, 143, 216);
+    text-shadow: 3px 3px rgb(0, 0, 0);
+    color: rgba(248, 64, 239, 0.815);
 }
 
 h1,
 h2{
     font-family: 'a okay';
-    color: rgb(0, 0, 0);
+    
 }
 
 button{
