@@ -11,6 +11,16 @@ body{
 
 header h1{
     padding: 25px;
+    background-color: rgba(255, 255, 255, 0.377);
+    background-position: center;
+}
+
+.slogan h2{
+    font-size: 34px;
+    background-color: rgba(255, 255, 255, 0.473);
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px rgba(226, 64, 239, 0.815);
+    background-position: center;
 }
 
 .navigation{
@@ -22,8 +32,6 @@ header h1{
 .navigation a{
     text-decoration: none;
     font-size: 20px;
-    
-
 }
 
 .container{
@@ -39,12 +47,12 @@ footer{
 
 h1{
     font-size: 38px;
-    text-shadow: 2.5px 2.5px rgb(0, 0, 0);
-    margin-top: 50px 10px 50px 10px;
-    color:  rgb(149, 245, 61);
+    text-shadow: 2.5px 2.5px rgb(149, 245, 61);
+    margin: 50px 10px 50px 10px;
+    color:  rgb(0, 0, 0);
 }
 
-h2{
+.divide{
     font-size: 34px;
     text-shadow: 3px 3px rgb(0, 0, 0);
     color: rgba(226, 64, 239, 0.815);
@@ -52,7 +60,7 @@ h2{
 
 h1,
 h2{
-    font-family: 'a okay';
+    font-family: 'a okay', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     
 }
 
@@ -68,12 +76,14 @@ button{
 .genre-search{
     display: inline-flex;
     margin-right: 5px;
+    
 }
 
 #js-genre-search,
 #js-similar-search{
     text-align: left;
     font-size: 18px;
+    font-family: monospace;
 }
 
 .similar-search{
@@ -83,24 +93,30 @@ button{
 
 #results{
     background-color:rgba(0, 0, 0, 0.685);
+    margin-top: 20px;
     color: rgb(255, 255, 255);
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: auto;
+    padding-right: 5px;
     text-align: left;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
 }
 
-#results h3{
-    text-decoration-line: underline;
-    margin-bottom:0;
-}
-
-#results-list h3{
-    display: inline-block;
+#results-list ul li{
+    padding-top: 5px;
+   padding-bottom: 10px;
 }
 
 #results-list h4{
-    font-size: 18px;
+    font-size: 18px;  
+    display: inline-flex;  
+}
+
+#results img{
+    padding-top: 5px;
+    padding-bottom: 10px;
+    
 }
 
 a:link,
@@ -110,12 +126,6 @@ a:visited{
 a:hover {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
-}
-
-#results img{
-    float:right;
-    margin-bottom: auto;
-    max-height: 100px;
 }
 
 footer{
@@ -150,12 +160,45 @@ footer h4{
         float: right;
         }
 }
+
+@media only screen and (min-width: 700px){
+    #results{
+        padding-left: 50px;
+        padding-right: 50px;        
+    }    
+    
+    #results img{
+        vertical-align: text-top;
+        float: right;
+        padding-right: 20px;
+    }
+    h1,
+    .slogan{
+        margin-left: 250px;
+        margin-right: 250px;
+    }
+}
 @media only screen and (min-width: 875px){
     header{
         margin-top: 45px;
         margin-bottom: 45px;
-        padding: 50px;
+        padding-left: 100px;
+        padding-right: 100px;
     }
+
+    header h1{
+        font-size: 42px;
+    }
+
+    h1,
+    .slogan{
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 100px;
+        padding-right: 100px;
+        font-size: 38px;
+    }
+
     
     .container{
         margin-bottom: 100px;
@@ -167,6 +210,7 @@ footer h4{
         padding-right: 125px;
         padding-left: 125px;
         max-height: 550px;
+        
     }
 
     #results h3{
@@ -186,7 +230,7 @@ footer h4{
     }
     img{
         margin-bottom: 0;
-        max-height: 125px;
+        max-height: 175px;
     }
 
 
