@@ -5,7 +5,7 @@ const searchURL= "https://api.rawg.io/api/games";
 function displayResults(responseJson){
 
     $('#js-error-message').empty();
-    $('#results-list').empty();
+    $('#results').empty();
     for (let i = 0; i < responseJson.results.length; i++){
         let results = responseJson.results[i];
         let platforms = results.parent_platforms.map((platforms) => {
@@ -85,5 +85,8 @@ function watchSimilarForm(){
         getSimilarList(similar);
     })
 }
-$(watchGenreForm);
-$(watchSimilarForm);
+
+
+    $(watchGenreForm);
+
+    $(watchSimilarForm);
