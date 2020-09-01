@@ -1,7 +1,7 @@
 'use strict';
 
 function displayResults(firstResponse, secondResponse){
-
+  
     $('#js-error-message').empty();
     $('#results').empty();
     $('#similar-results').empty();
@@ -17,14 +17,20 @@ function displayResults(firstResponse, secondResponse){
     let storeURL = firstResponse.stores.map((stores) => {
         return stores.url
     });
-    let store = stores.map((store) => {
-        return `<a href= "${storeURL}" target= "_blank">${store.name}</a>`
+    let  gameStore = stores.map((store) => {
+            return store.name
     });
+
+    let formattedURL= [];
+    for (let j = 0; j < storeURL.length && j < gameStore.length; j ++){
+        formattedURL = `<a href= "${storeURL[j]}" target= "_blank">${gameStore[j]}</a>`
+    };
+    
         $('#results').append(
             `<ul id="gameInfo">
             <li><h4>${firstResponse.name}</h4><img src= ${firstResponse.background_image} width= 200px>
             <p>Platform: ${platform}</p>
-            <p>Store:</p>${store}
+            <p>Store: ${formattedURL}</p>
             </li>
             </ul>`
     );
@@ -48,14 +54,19 @@ function displayResults(firstResponse, secondResponse){
             return stores.url_en
         });
         let store = stores.map((store) => {
-            return `<a href= "${storeURL}" target= "_blank">${store.name}</a>`
+            return store.name
         });
-       
+
+        let formattedURL= [];
+        for (let j = 0; j < storeURL.length && j < gameStore.length; j ++){
+            formattedURL = `<a href= "${storeURL[j]}" target= "_blank">${store[j]}</a>`
+        };
+
         $('#results-list').append(
             `<li><h4>${results.name}</h4><img src= ${results.background_image} width= 200px>
             <p>Description: ${results.short_description}</p>
             <p>Platforms: ${platform}</p>
-            <p>Stores:</p>${store}
+            <p>Stores: ${formattedURL}</p>
             </li>
             </ul>`
     )};
