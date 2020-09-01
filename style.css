@@ -52,15 +52,9 @@ h1{
     color:  rgb(0, 0, 0);
 }
 
-.divide{
-    font-size: 34px;
-    text-shadow: 3px 3px rgb(0, 0, 0);
-    color: rgba(226, 64, 239, 0.815);
-}
-
 h1,
 h2{
-    font-family: 'a okay', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'a_okay', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     
 }
 
@@ -73,25 +67,18 @@ button{
     
 }
 
-.genre-search{
-    display: inline-flex;
-    margin-right: 5px;
-    
-}
-
-#js-genre-search,
-#js-similar-search{
+#js-search{
     text-align: left;
     font-size: 18px;
     font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
 }
 
-.similar-search{
-    display: inline-flex;
-    margin-left: 5px;
-}
-
-#results{
+#results,
+#similar-results{
     background-color:rgba(0, 0, 0, 0.685);
     margin-top: 20px;
     color: rgb(255, 255, 255);
@@ -103,17 +90,25 @@ button{
     flex-direction: column;
 }
 
-#results-list ul li{
+#results-list ul li,
+#gameInfo ul li{
     padding-top: 5px;
    padding-bottom: 10px;
 }
 
-#results-list h4{
+#results-list h4
+#gameInfo h4{
     font-size: 18px;  
-    display: inline-flex;  
+    display: flex; 
+    flex-direction: column;
 }
 
-#results img{
+#similar-results h3{
+    text-align: center;
+}
+
+#results img
+#similar-results img{
     padding-top: 5px;
     padding-bottom: 10px;
     
@@ -155,35 +150,29 @@ footer{
 footer h4{
     margin-bottom: 10px;
 }
-@media only screen and (min-width: 500px){
-    .connect{
-        float: right;
-        }
-}
 
+/*
 @media only screen and (min-width: 700px){
-    #results{
+    #results,
+    #similar-results{
         padding-left: 50px;
         padding-right: 50px;        
     }    
     
-    #results img{
-        vertical-align: text-top;
-        float: right;
-        padding-right: 20px;
+
     }
     h1,
     .slogan{
         margin-left: 250px;
         margin-right: 250px;
     }
-}
+}*/
 @media only screen and (min-width: 875px){
     header{
         margin-top: 45px;
         margin-bottom: 45px;
-        padding-left: 100px;
-        padding-right: 100px;
+        padding-left: 70px;
+        padding-right: 70px;
     }
 
     header h1{
@@ -205,7 +194,13 @@ footer h4{
         padding: 50px;
     }
 
-    #results{
+    .game-search{
+        padding-left: 150px;
+        padding-right: 150px;
+    }
+
+    #results,
+    #similar-results{
         padding-top: 25px;
         padding-right: 125px;
         padding-left: 125px;
@@ -213,21 +208,22 @@ footer h4{
         
     }
 
-    #results h3{
+    #similar-results h3{
         font-size: 20px;
     }
 
-    #results-list ul{
+    #results img,
+    #similar-results img{
+        vertical-align: text-top;
+        float: right;
+        padding-right: 20px;
+    }
+
+    #results-list ul,
+    #gameInfo ul{
         padding-top: 75px;
     }
 
-    .genre-search{
-        margin-right: 30px;
-    }
-    
-    .similar-search{
-        margin-left: 30px
-    }
     img{
         margin-bottom: 0;
         max-height: 175px;
