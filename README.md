@@ -1,1 +1,2 @@
-# Video-Game-Seeker
+Game Curator
+===========
