@@ -1,7 +1,7 @@
 'use strict';
 
 function displayResults(firstResponse, secondResponse){
-    console.log(firstResponse);
+
     $('#js-error-message').empty();
     $('#results').empty();
     $('#similar-results').empty();
