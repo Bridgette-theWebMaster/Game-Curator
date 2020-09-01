@@ -8,13 +8,13 @@ Link to live page
 
 Screenshots
 --------
-![screenshot 1](Screenshots/Screenshot (1).png "First screenshot")
-![screenshot 2](Screenshots/Screenshot (2).png "First screenshot")
-![screenshot 3](Screenshots/Screenshot (3).png "First screenshot")
-![screenshot 4](Screenshots/Screenshot (4).png "First screenshot")
+![home](Screenshots/Screenshot1.png)
+![search](Screenshots/Screenshot2.png)
+![game search](Screenshots/Screenshot3.png)
+![recommended games](Screenshots/Screenshot4.png)
 
-**Tech used
-
+Tech used
+-------
 - JavaScript
 - HTML
 - CSS
