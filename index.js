@@ -17,11 +17,11 @@ function displayResults(firstResponse, secondResponse){
     let storeURL = firstResponse.stores.map((stores) => {
         return stores.url
     });
-    let  gameStore = stores.map((store) => {
-            return store.name
+    let gameStore = stores.map((store) => {
+        return store.name
     });
 
-    let formattedURL= [];
+    let formattedURL= "";
     for (let j = 0; j < storeURL.length && j < gameStore.length; j ++){
         formattedURL = `<a href= "${storeURL[j]}" target= "_blank">${gameStore[j]}</a>`
     };
@@ -57,7 +57,7 @@ function displayResults(firstResponse, secondResponse){
             return store.name
         });
 
-        let formattedURL= [];
+        let formattedURL= "";
         for (let j = 0; j < storeURL.length && j < gameStore.length; j ++){
             formattedURL = `<a href= "${storeURL[j]}" target= "_blank">${store[j]}</a>`
         };
@@ -88,6 +88,7 @@ function getData(gameTitle, maxResults = 10){
         let secondResponse = response[1];
         displayResults(firstResponse, secondResponse)
     });
+    .catch(error => 'Video game not found. Try Again.')
 }
 
 function watchFind(){
