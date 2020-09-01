@@ -13,57 +13,32 @@
         <nav>
             <ul class= "navigation">
                 <li><a href= "#home">Home</a>|</li>
-                <li><a href= "#js-genre-search">Search</a>|</li>
+                <li><a href= "#js-platform-search">Search</a>|</li>
                 <li><a href= "#contact">Contact</a></li>
             </ul>
             
         </nav>
-        <h1 id= "home">Video Game Seeker</h1>
+        <h1 id= "home"> The Gaming Curator</h1>
 
     </header>
     <div class= "container">
         <section class= "slogan">            
-            <h2>Discover your new favorite game!</h2>
+            <h2>Discover new games!</h2>
             </section>
-        <section class= "genre-search">
-            <form id= "js-genre-search">
-                <h3>Choose a style</h3>
-                    <select name="genre" size="1" id="genreList">
-                        <option value="action">Action</option>
-                        <option value="adventure">Adventure</option>
-                        <option value="arcade">Arcade</option>
-                        <option value="board-games">Board Games</option>
-                        <option value="card">Card</option>
-                        <option value="casual">Casual</option>
-                        <option value="educational">Educational</option>
-                        <option value="family">Family</option>
-                        <option value="fighting">Fighting</option>
-                        <option value="indie">Indie</option> 
-                        <option value="massively-multiplayer">MMO</option>     
-                        <option value="platformer">Platformer</option>
-                        <option value="puzzle">Puzzle</option>
-                        <option value="racing">Racing</option>
-                        <option value="role-playing-games-rpg">RPG</option>
-                        <option value="shooter">Shooter</option>
-                        <option value="simulation">Simulation</option>
-                        <option value="sports">Sports</option>
-                        <option value="strategy">Strategy</option>
-                    </select>
-                    <button type="submit">Seek</button>
-            </form>
-        </section>
-        <h2 class= "divide">OR</h2>
-        <section class= "similar-search">
-            <form id= "js-similar-search">
-                <label for= "gameName"><h3>Seek games similar to</h3></label>
-                <input id= "gameName" type= "text" name="name" required>
-                <button type="submit">Seek</button>
+        <section class= "game-search">
+            <form id= "js-search">                
+                <label for= "gameName"><h3>Game Title</h3></label>
+                <input id= "gameName" type= "text" name="name" placeholder="e.g, Final Fantasy" required>
+                <label for= "maxResults"><h3>Maxium number of results</h3></label>
+                <input id= "maxResults" type= "number" name= "number" min= "1" max= "10">
+                <button type="submit">Find</button>
             </form>
         </section>
         <p id="js-error-message" class="error-message"></p>
         <section id= "results" class= "hidden">
-            
-            
+
+        </section>
+        <section id= "similar-results" class= "hidden">
             
         </section>
     </div>

@@ -1,14 +1,41 @@
 'use strict';
 
-const searchURL= "https://api.rawg.io/api/games";
-
-function displayResults(responseJson){
-
+function displayResults(firstResponse, secondResponse){
+    console.log(firstResponse);
     $('#js-error-message').empty();
     $('#results').empty();
-    for (let i = 0; i < responseJson.results.length; i++){
-        let results = responseJson.results[i];
-        let platforms = results.parent_platforms.map((platforms) => {
+    $('#similar-results').empty();
+    let platforms = firstResponse.platforms.map((platforms) => {
+        return platforms.platform
+    });
+    let platform = platforms.map((platform) => {
+        return platform.name
+    });
+    let stores = firstResponse.stores.map((stores) => {
+        return stores.store
+    });
+    let storeURL = firstResponse.stores.map((stores) => {
+        return stores.url
+    });
+    let store = stores.map((store) => {
+        return `<a href= "${storeURL}" target= "_blank">${store.name}</a>`
+    });
+        $('#results').append(
+            `<ul id="gameInfo">
+            <li><h4>${firstResponse.name}</h4><img src= ${firstResponse.background_image} width= 200px>
+            <p>Platform: ${platform}</p>
+            <p>Store:</p>${store}
+            </li>
+            </ul>`
+    );
+    $('#results').removeClass('hidden');
+    $('#similar-results').append(
+        `<h3>Similar Games</h3>
+        <ul id= "results-list">`
+    )
+    for (let i = 0; i < secondResponse.results.length; i++){
+        let results= secondResponse.results[i];
+        let platforms = results.platforms.map((platforms) => {
             return platforms.platform
         });
         let platform = platforms.map((platform) => {
@@ -17,76 +44,48 @@ function displayResults(responseJson){
         let stores = results.stores.map((stores) => {
             return stores.store
         });
-        let store = stores.map((store) => {
-            return store.name
+        let storeURL = results.stores.map((stores) => {
+            return stores.url_en
         });
-        if (platform === "null"){
-            platform= "Not found";
-        }
-        if (store === "null"){
-            stores= "Not found";
-        }
-        $('#results').append(
-            `<ul id="results-list">
-            <li><h4>${results.name}</h4><img src= ${results.background_image} width= 200px>
-            <p>Release Date: ${results.released}</p>
-            <p id= "platforms">How to play: ${platform}</p>
-            <p id= "stores">Where to buy: ${store}</p>          
+        let store = stores.map((store) => {
+            return `<a href= "${storeURL}" target= "_blank">${store.name}</a>`
+        });
+       
+        $('#results-list').append(
+            `<li><h4>${results.name}</h4><img src= ${results.background_image} width= 200px>
+            <p>Description: ${results.short_description}</p>
+            <p>Platforms: ${platform}</p>
+            <p>Stores:</p>${store}
             </li>
             </ul>`
     )};
-    $('#results').removeClass('hidden');
+    $('#similar-results').removeClass('hidden');
 }
 
+function getData(gameTitle, maxResults = 10){
+    const gameAPI = fetch("https://api.rawg.io/api/games/" + gameTitle);
+    const similarAPI = fetch("https://api.rawg.io/api/games/" + gameTitle + "/suggested" + "?page_size=" + maxResults);
 
-function getGenreList(genre) {
-    const url= searchURL + "?genres=" + genre;
-
-    fetch(url)
-        .then(response => {
-            if(response.ok){
-                return response.json();
-            }
-            throw new Error(response.statusText);
-        })
-        .then(responseJson => displayResults(responseJson))
-        .catch(err => {$('#js-error-message').text('Video Game Not Found')});
+    Promise.all([gameAPI, similarAPI])
+    .then(responses => Promise.all(responses.map(response => {
+        if(response.ok){
+            return response.json();
+        }
+    })))
+    .then(response => {
+        let firstResponse = response[0];
+        let secondResponse = response[1];
+        displayResults(firstResponse, secondResponse)
+    });
 }
 
-function getSimilarList(similar) {
-    const formatSimilar = $('#gameName').val().replace(/\s+/g, '-').toLowerCase();
-
-    const url = searchURL + "/" + formatSimilar + "/suggested";
-
-    
-    fetch(url)
-        .then(response => {
-            if(response.ok){
-                return response.json();
-            }
-            throw new Error(response.statusText);
-        })
-        .then(responseJson => displayResults(responseJson))
-        .catch(err => {$('#js-error-message').text('Video Game Not Found')});   
-}
-
-function watchGenreForm(){
-    $('#js-genre-search').submit(event => {
+function watchFind(){
+    $('#js-search').submit(event => {
         event.preventDefault();
-        const genre = $('#genreList').val();
-        getGenreList(genre);
+        const gameTitle = $('#gameName').val().replace(/\s+/g, '-').toLowerCase();
+        const maxResults = $('#maxResults').val();
+        getData(gameTitle, maxResults);
     })
 }
 
-function watchSimilarForm(){
-    $('#js-similar-search').submit(event => {
-        event.preventDefault();
-        const similar = $('#gameName').val();
-        getSimilarList(similar);
-    })
-}
-
-
-    $(watchGenreForm);
-
-    $(watchSimilarForm);
+$(watchFind);
