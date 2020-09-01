@@ -54,7 +54,7 @@ h1{
 
 h1,
 h2{
-    font-family: 'a_okay', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'a_okay.zip', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     
 }
 
@@ -151,22 +151,6 @@ footer h4{
     margin-bottom: 10px;
 }
 
-/*
-@media only screen and (min-width: 700px){
-    #results,
-    #similar-results{
-        padding-left: 50px;
-        padding-right: 50px;        
-    }    
-    
-
-    }
-    h1,
-    .slogan{
-        margin-left: 250px;
-        margin-right: 250px;
-    }
-}*/
 @media only screen and (min-width: 875px){
     header{
         margin-top: 45px;
@@ -226,7 +210,6 @@ footer h4{
 
     img{
         margin-bottom: 0;
-        max-height: 175px;
     }
 
 
