@@ -157,6 +157,14 @@ footer h4{
     margin-bottom: 10px;
 }
 
+.gitIcon{
+    width: 45px;
+}
+
+.linkedIcon{
+    width: 50px;
+}
+
 
 @media only screen and (min-width: 875px){
     header{
@@ -194,9 +202,7 @@ footer h4{
     #similar-results{
         padding-top: 25px;
         padding-right: 125px;
-        padding-left: 125px;
-        max-height: 550px;
-        
+        padding-left: 125px;       
     }
 
     #similar-results h3{
@@ -217,6 +223,5 @@ footer h4{
 
     img{
         margin-bottom: 0;
-       /* max-height: 175px;*/
     }
 }
