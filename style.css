@@ -223,5 +223,6 @@ footer h4{
 
     img{
         margin-bottom: 0;
+        max-height: 150px;
     }
 }
