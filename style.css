@@ -1,5 +1,5 @@
 body{
-    background-image: url(Background.jpeg);
+    background-image: url(Images/Background.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -56,6 +56,13 @@ h1,
 h2{
     font-family: 'Press Start 2P', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     
+}
+
+label{
+    font-family: monospace;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.377);
+    color: rgb(0, 0, 0);
 }
 
 button{
