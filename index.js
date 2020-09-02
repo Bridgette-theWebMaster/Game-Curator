@@ -87,8 +87,8 @@ function getData(gameTitle, maxResults = 10){
         let firstResponse = response[0];
         let secondResponse = response[1];
         displayResults(firstResponse, secondResponse)
-    });
-    .catch(error => 'Video game not found. Try Again.')
+    })
+    .catch(error => {$('#js-error-message').text('Video game not found. Try Again.')});
 }
 
 function watchFind(){
