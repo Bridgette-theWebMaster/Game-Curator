@@ -28,7 +28,7 @@ function displayResults(firstResponse, secondResponse){
     
         $('#results').append(
             `<ul id="gameInfo">
-            <li><h4>${firstResponse.name}</h4><img src= ${firstResponse.background_image} width= 200px>
+            <li><h4>${firstResponse.name}</h4><img src= ${firstResponse.background_image}>
             <p>Platform: ${platform}</p>
             <p>Store: ${formattedURL}</p>
             </li>
@@ -63,7 +63,7 @@ function displayResults(firstResponse, secondResponse){
         };
 
         $('#results-list').append(
-            `<li><h4>${results.name}</h4><img src= ${results.background_image} width= 200px>
+            `<li><h4>${results.name}</h4><img src= ${results.background_image}>
             <p>Description: ${results.short_description}</p>
             <p>Platforms: ${platform}</p>
             <p>Stores: ${formattedURL}</p>
