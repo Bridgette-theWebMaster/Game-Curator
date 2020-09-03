@@ -103,6 +103,10 @@ button{
    padding-bottom: 10px;
 }
 
+#results img{
+     width: 200px;
+}
+
 #results-list h4
 #gameInfo h4{
     font-size: 18px;  
